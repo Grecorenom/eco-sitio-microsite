@@ -1,636 +1,843 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eco-Sítio La Querência — Casa na Árvore | Reserva Direta</title>
-    <meta name="description" content="Fique na primeira casa na árvore de Estiva de Arembepe, Camaçari. Experiência de imersão na mata atlântica: baunilha nativa, aves, bioarquitetura. Reserve direto, sem taxa de intermediário." />
-    <meta property="og:title" content="Eco-Sítio La Querência — Casa na Árvore" />
-    <meta property="og:description" content="Imersão na mata atlântica em Camaçari/BA. Reserva direta pelo WhatsApp." />
-    <meta property="og:type" content="website" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Patrick+Hand&family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-  /* Neutrals from image analysis */
-  --neutral-light: #d7d5cd; /* from fossa.jpg */
-  --neutral-warm: #c7bdad;  /* from casavida.png */
-  --neutral-earth: #c4bba2; /* from Agua.png */
-  
-  /* User's palette for accents and meaning */
-  --paper: #F6EEDA; /* parchment cream */
-  --burgundy: #5E1A1A; /* deep burgundy */
-  --forest: #2F5D3A; /* forest green */
-  --terracotta: #B5442E; /* terracota */
-  --wood: #B27A3F; /* dark warm brown */
-  --leaf: #6E8B3D; /* sage / leaf green */
-  --water: #4A88B8; /* soft river blue */
-  --gold: #B08A4E; /* muted gold-brown */
-  --radius: 14px;
-  --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}:root {
-          --paper: #F6EEDA;
-          --burgundy: #5E1A1A;
-          --forest: #2F5D3A;
-          --ink: #2B2118;
-          --terracotta: #B5442E;
-          --wood: #B27A3F;
-          --leaf: #6E8B3D;
-          --water: #4A88B8;
-          --gold: #B08A4E;
-          --radius: 14px;
-          --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-        * { margin:0; padding:0; box-sizing:border-box }
-        html { scroll-behavior: smooth }
-        body {
-          background: var(--paper);
-          background-image: var(--grain);
-          background-attachment: fixed;
-          color: var(--neutral-warm);
-          font-family: "Patrick Hand", cursive;
-          line-height: 1.6;
-          position: relative;
-          overflow-x: hidden;
-        }
-        body::before {
-          content: "";
-          position: fixed;
-          inset: 0;
-          background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.05) 70%);
-          pointer-events: none;
-          z-index: 10;
-        }
-        a { color: inherit; text-decoration: none }
-        img { max-width: 100%; display: block }
-        .wrap { max-width: 1080px; margin: 0 auto; padding: 0 22px }
-        
-        /* Typography */
-        h1, h2, h3, .bilingual-headline {
-          font-family: "League Gothic", sans-serif;
-          text-transform: uppercase;
-          color: var(--burgundy);
-          letter-spacing: .02em;
-          margin: 0;
-          position: relative;
-        }
-        .bilingual-headline .pt { display: block; font-size: 2.2rem; line-height: 1.1; }
-        .bilingual-headline .en { 
-          display: block; 
-          color: var(--forest); 
-          font-style: italic; 
-          font-size: .85em; 
-          margin-top: 4px;
-          letter-spacing: .01em;
-        }
-        .en-only {
-          color: var(--forest);
-          font-style: italic;
-          font-size: .9rem;
-        }
-        p { color: var(--neutral-warm); margin: 1rem 0; }
-        .label, .caption {
-          font-family: "Josefin Sans", sans-serif;
-          text-transform: uppercase;
-          font-size: .75rem;
-          letter-spacing: .05em;
-          color: var(--neutral-earth);
-        }
-        
-        /* Components */
-        .hero {
-          position: relative;
-          min-height: 85vh;
-          display: flex;
-          align-items: center;
-          color: var(--neutral-warm);
-          overflow: hidden;
-          padding: 40px 0;
-        }
-        .hero .content {
-          position: relative;
-          z-index: 2;
-          max-width: 500px;
-        }
-        .hero .eyebrow {
-          display: inline-block;
-          font-size: .8rem;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-          background: rgba(255,255,255,.2);
-          border: 1px solid rgba(255,255,255,.3);
-          padding: 4px 10px;
-          border-radius: 999px;
-          margin-bottom: 12px;
-          font-family: "Josefin Sans", sans-serif;
-          color: var(--terracotta);
-        }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 16px; }
-        .hero p { font-size: 1.1rem; max-width: 40ch; color: var(--neutral-warm); }
-        .hero .divider {
-          width: 60px;
-          height: 2px;
-          background: var(--terracotta);
-          margin: 20px 0;
-          position: relative;
-        }
-        .hero .divider::before,
-        .hero .divider::after {
-          content: "";
-          position: absolute;
-          top: -4px;
-          width: 8px;
-          height: 8px;
-          background: var(--terracotta);
-          border-radius: 50%;
-        }
-        .hero .divider::before { left: -12px; }
-        .hero .divider::after { right: -12px; }
-        
-        .illustration {
-          flex: 1;
-          min-width: 300px;
-          display: flex;
-          justify-content: center;
-          align-items: flex-end;
-          padding: 20px;
-        }
-        .illustration img {
-          max-width: 100%;
-          height: auto;
-          filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-        }
-        
-        .section { padding: 60px 0; }
-        .section-title {
-          text-align: center;
-          margin-bottom: 40px;
-        }
-        .section-title .bilingual-headline { 
-          display: inline-block; 
-        }
-        
-        .icon-strip {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 24px;
-          justify-content: center;
-          margin-top: 30px;
-        }
-        .icon-item {
-          text-align: center;
-          max-width: 180px;
-        }
-        .icon-item .icon-wrap {
-          width: 60px;
-          height: 60px;
-          border: 1.5px solid var(--neutral-light);
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: 0 auto 12px;
-          background: rgba(255,255,255,.2);
-        }
-        .icon-item .icon-wrap svg {
-          width: 28px;
-          height: 28px;
-          fill: var(--forest);
-        }
-        .icon-item .bilingual-text {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 2px;
-          font-size: .9rem;
-        }
-        .icon-item .pt { font-weight: 600; }
-        .icon-item .en { font-size: .8rem; color: var(--forest); font-style: italic; }
-        .divider-dot {
-          width: 2px;
-          height: 2px;
-          background: var(--muted);
-          margin: 0 8px;
-        }
-        
-        .steps {
-          display: flex;
-          gap: 30px;
-          justify-content: center;
-          margin-top: 40px;
-        }
-        .step {
-          display: flex;
-          align-items: center;
-          gap: 16px;
-        }
-        .step-number {
-          width: 36px;
-          height: 36px;
-          background: var(--forest);
-          color: white;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: bold;
-          font-size: 1.1rem;
-          font-family: "League Gothic", sans-serif;
-        }
-        .step-content {
-          text-align: left;
-        }
-        .step-content h3 {
-          color: var(--burgundy);
-          font-size: 1.1rem;
-          margin-bottom: 6px;
-        }
-        .step-content p {
-          font-size: .95rem;
-          line-height: 1.5;
-        }
-        
-        .info-cards {
-          display: grid;
-          gap: 24px;
-          margin-top: 40px;
-        }
-        @media (min-width: 600px) {
-          .info-cards { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (min-width: 900px) {
-          .info-cards { grid-template-columns: repeat(3, 1fr); }
-        }
-        .card {
-          border: 1.5px solid var(--neutral-light);
-          border-radius: var(--radius);
-          background: rgba(255,255,255,.2);
-          padding: 1.5rem;
-          transition: all .3s ease;
-        }
-        .card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-          background: rgba(255,255,255,.3);
-        }
-        .card h3 {
-          color: var(--burgundy);
-          font-size: 1.2rem;
-          margin-bottom: 10px;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-        .card h3::before {
-          content: "";
-          width: 8px;
-          height: 8px;
-          background: var(--terracotta);
-          border-radius: 50%;
-        }
-        .card p {
-          font-size: .95rem;
-          line-height: 1.6;
-          color: var(--neutral-warm);
-        }
-        
-        .cta-box {
-          background: linear-gradient(135deg, var(--terracotta), var(--burgundy));
-          border-radius: 20px;
-          padding: 50px 40px;
-          color: white;
-          text-align: center;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-          margin-top: 40px;
-        }
-        .cta-box h2 {
-          color: white;
-          font-size: 1.8rem;
-          margin-bottom: 20px;
-        }
-        .cta-box p {
-          max-width: 50ch;
-          margin: 0 auto 24px;
-          font-size: 1.05rem;
-          opacity: .9;
-        }
-        .price-tag {
-          display: inline-block;
-          background: rgba(255,255,255,.2);
-          border: 1px solid rgba(255,255,255,.3);
-          border-radius: 10px;
-          padding: 8px 16px;
-          font-size: .95rem;
-          margin-bottom: 20px;
-          backdrop-filter: blur(4px);
-        }
-        .btn {
-          display: inline-block;
-          background: var(--wood);
-          color: white;
-          font-weight: 600;
-          padding: 14px 28px;
-          border-radius: 12px;
-          font-size: 1rem;
-          transition: transform .12s ease, box-shadow .12s ease;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-          border: none;
-          cursor: pointer;
-          font-family: "Patrick Hand", cursive;
-        }
-        .btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-          background: var(--wood);
-          opacity: .95;
-        }
-        .btn.ghost {
-          background: transparent;
-          border: 2px solid var(--neutral-light);
-          box-shadow: none;
-        }
-        .btn.ghost:hover {
-          background: rgba(255,255,255,.05);
-        }
-        
-        .footer {
-          background: var(--burgundy);
-          color: #f0ede6;
-          padding: 30px 0;
-          font-size: .9rem;
-          text-align: center;
-          position: relative;
-          overflow: hidden;
-        }
-        .footer::before,
-        .footer::after {
-          content: "";
-          position: absolute;
-          top: -20px;
-          width: 60px;
-          height: 60px;
-          background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 14c-4.41 0-8-3.59-8-8s3.59-8 8 8-3.59 8-8 8z' fill='%23f0ede6'/%3E%3C/svg%3E");
-          background-repeat: no-repeat;
-          background-position: center;
-          opacity: .15;
-        }
-        .footer::before { left: -30px; }
-        .footer::after { right: -30px; }
-        .footer .wrap {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 14px;
-          justify-content: center;
-          align-items: center;
-        }
-        .footer a { color: #f0ede6; }
-        
-        /* WhatsApp float button */
-        .wa-float {
-          position: fixed;
-          bottom: 24px;
-          right: 24px;
-          z-index: 60;
-          width: 56px;
-          height: 56px;
-          border-radius: 50%;
-          background: #25d366;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-          transition: all .3s ease;
-        }
-        .wa-float:hover {
-          transform: scale(1.05);
-          box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-        }
-        .wa-float svg {
-          width: 28px;
-          height: 28px;
-          fill: white;
-        }
-        
-        /* Animations */
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .fade-up {
-          opacity: 0;
-          transform: translateY(30px);
-          animation: fadeUp .6s ease forwards;
-        }
-        .fade-up.delay-1 { animation-delay: .1s; }
-        .fade-up.delay-2 { animation-delay: .2s; }
-        .fade-up.delay-3 { animation-delay: .3s; }
-        .fade-up.delay-4 { animation-delay: .4s; }
-        .fade-up.delay-5 { animation-delay: .5s; }
-        
-        /* Dashed line animation for water/airflow */
-        .dashed-line {
-          position: relative;
-          overflow: hidden;
-        }
-        .dashed-line::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: repeating-linear-gradient(
-            to right,
-            var(--water) 0,
-            var(--water) 4px,
-            transparent 4px,
-            transparent 8px
-          );
-          background-size: 16px 100%;
-          animation: dashMove 2s linear infinite;
-        }
-        @keyframes dashMove {
-          to { background-position: 16px 0; }
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-          .hero { min-height: 75vh; text-align: center; }
-          .hero .content { max-width: 100%; }
-          .hero h1 { font-size: 2.2rem; }
-          .steps { flex-direction: column; align-items: center; }
-          .step { flex-direction: column; text-align: center; }
-          .icon-strip { justify-content: center; }
-        }
-        @media (max-width: 480px) {
-          .wrap { padding: 0 16px; }
-          .section { padding: 40px 0; }
-          .bilingual-headline .pt { font-size: 1.8rem; }
-          .cta-box { padding: 30px 20px; }
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eco-Sítio La Querência — Casa na Árvore em Estiva de Arembepe | Reserva Direta</title>
+<meta name="description" content="Dormir na árvore, na mata atlântica de Estiva de Arembepe, Camaçari/BA. Bioarquitetura em madeira reaproveitada, baunilha nativa, aves e produção rural. Unidade-piloto em finalização. Reserva direta pelo WhatsApp." />
+<meta name="theme-color" content="#F7F1E0" />
+<meta property="og:title" content="Eco-Sítio La Querência — Casa na Árvore" />
+<meta property="og:description" content="Mata atlântica em Camaçari/BA, a 1h de Salvador. Construímos com as próprias mãos — e queremos que você durma aqui." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F1E0;
+    --paper-2:#FCF8EC;
+    --paper-3:#F1E8D2;
+    --ink:#3A2E21;
+    --ink-soft:#6B5B45;
+    --wine:#7A2A2C;
+    --green:#2E5B3C;
+    --green-dark:#22452E;
+    --olive:#6E8B3D;
+    --terra:#B5442E;
+    --wood:#A9713A;
+    --gold:#B08A4E;
+    --water:#4A88B8;
+    --rule:#CDBB98;
+    --border:#8A6A45;
+    --radius:12px;
+    --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background-color:var(--paper);
+    color:var(--ink);
+    font-family:"Lora",Georgia,serif;
+    font-size:1.02rem;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* textura de papel: leve, sobreposta — não altera a cor base */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:6;
+    background-image:var(--grain);background-size:180px 180px;
+    opacity:.045;mix-blend-mode:multiply;
+  }
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:5;
+    box-shadow:inset 0 0 140px rgba(90,66,36,.10);
+  }
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+
+  /* ---------- Typography ---------- */
+  h1,h2,h3,.display{
+    font-family:"Playfair Display",Georgia,serif;
+    font-weight:800;
+    text-transform:uppercase;
+    color:var(--wine);
+    line-height:1.08;
+    letter-spacing:.005em;
+  }
+  .bl .pt{display:block;font-family:"Playfair Display",Georgia,serif;font-weight:800;text-transform:uppercase;color:var(--wine)}
+  .bl .en{
+    display:block;margin-top:.5em;
+    font-family:"Jost",system-ui,sans-serif;font-weight:500;
+    font-size:.76em;line-height:1.4;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--green);
+  }
+  .h-xl .pt{font-size:clamp(2.2rem,6.4vw,3.9rem)}
+  .h-lg .pt{font-size:clamp(1.7rem,4.4vw,2.7rem)}
+  .h-md .pt{font-size:clamp(1.25rem,2.4vw,1.6rem)}
+  p{margin:1rem 0;color:var(--ink)}
+  .lead{font-size:1.1rem;color:var(--ink-soft);max-width:62ch}
+  .pt-serif{font-family:"Lora",Georgia,serif}
+  em,.it{font-style:italic}
+  .en-body{font-style:italic;color:var(--ink-soft)}
+  .kicker,.label,.caption{
+    font-family:"Jost",system-ui,sans-serif;font-weight:600;
+    text-transform:uppercase;letter-spacing:.18em;
+    font-size:.7rem;color:var(--wood);
+  }
+  .rule{height:1px;background:var(--rule);border:0;margin:0}
+  .rule-leaf{display:flex;align-items:center;justify-content:center;gap:12px;margin:22px 0}
+  .rule-leaf::before,.rule-leaf::after{content:"";height:1px;flex:1;max-width:160px;background:var(--rule)}
+  .rule-leaf svg{width:20px;height:20px;color:var(--olive)}
+
+  /* ---------- Leaf ornament ---------- */
+  .sprig{position:absolute;color:var(--olive);opacity:.5;pointer-events:none;z-index:1}
+  .sprig svg{width:100%;height:auto}
+  .sprig.tl{top:6px;left:-14px;width:130px;transform:rotate(-6deg)}
+  .sprig.tr{top:6px;right:-14px;width:130px;transform:scaleX(-1) rotate(-6deg)}
+  .sprig.bl{bottom:-6px;left:-10px;width:110px;transform:scaleY(-1) rotate(6deg)}
+  .sprig.br{bottom:-6px;right:-10px;width:110px;transform:scale(-1,-1) rotate(6deg)}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:40;
+    background:rgba(247,241,224,.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
+  .logo{font-family:"Playfair Display",serif;font-weight:800;text-transform:uppercase;font-size:1.05rem;letter-spacing:.04em;color:var(--ink);line-height:1.1}
+  .logo span{color:var(--wine)}
+  .logo small{display:block;font-family:"Jost",sans-serif;font-weight:500;font-size:.6rem;letter-spacing:.22em;color:var(--wood);text-transform:uppercase;margin-top:3px}
+  .nav-right{display:flex;align-items:center;gap:22px}
+  .nav-links{display:flex;gap:22px;font-family:"Jost",sans-serif;font-weight:500;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  .nav-links a:hover{color:var(--wine)}
+  @media(max-width:820px){.nav-links{display:none}}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-block;font-family:"Jost",sans-serif;font-weight:600;
+    font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+    padding:14px 26px;border:1.5px solid var(--border);border-radius:999px;
+    background:var(--green);color:var(--paper-2);border-color:var(--green);
+    cursor:pointer;transition:transform .14s ease,box-shadow .14s ease,background .14s ease;
+    box-shadow:0 3px 0 rgba(90,66,36,.18);
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(90,66,36,.22)}
+  .btn.ghost{background:transparent;color:var(--wine);border-color:var(--border)}
+  .btn.ghost:hover{background:rgba(169,113,58,.08)}
+  .btn.sm{padding:10px 20px;font-size:.7rem}
+
+  /* ---------- Boxes (infographic panels) ---------- */
+  .panel{
+    background:var(--paper-2);
+    border:1.5px solid var(--border);
+    border-radius:var(--radius);
+    padding:1.5rem 1.6rem;
+    box-shadow:0 2px 0 rgba(138,106,69,.14);
+  }
+  .panel.alert{border-color:var(--terra);background:#FBF3E6}
+  .panel-label{
+    display:inline-block;font-family:"Jost",sans-serif;font-weight:600;
+    font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--wine);
+    border-bottom:1.5px solid var(--rule);padding-bottom:6px;margin-bottom:12px;
+  }
+  .panel-label.green{color:var(--green)}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;overflow:hidden;padding:clamp(40px,6vw,80px) 0 50px}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:34px}}
+  .eyebrow{
+    display:inline-block;font-family:"Jost",sans-serif;font-weight:500;
+    font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green);
+    border:1.5px solid var(--rule);border-radius:999px;padding:7px 16px;margin-bottom:22px;
+    background:var(--paper-2);
+  }
+  .hero h1{margin-bottom:6px}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+  .hero-strip{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center}
+  .hero-strip .kicker{color:var(--ink-soft)}
+  .hero-strip .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);display:inline-block;margin-right:8px;vertical-align:middle}
+  .illus{position:relative}
+  .illus svg{width:100%;height:auto}
+  .illus figcaption{
+    font-family:"Jost",sans-serif;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--wood);text-align:center;margin-top:8px;
+  }
+
+  /* ---------- Sections ---------- */
+  section[id],main[id]{scroll-margin-top:92px}
+  section.block{padding:clamp(46px,7vw,86px) 0;position:relative}
+  .sec-head{max-width:64ch;margin-bottom:38px}
+  .sec-head.center{margin:0 auto 38px;text-align:center}
+  .sec-head .bl{margin-bottom:16px}
+  .kicker-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .kicker-row::after{content:"";height:1px;flex:1;background:var(--rule)}
+  .center .kicker-row::after{display:none}
+
+  /* ---------- Cards ---------- */
+  .grid{display:grid;gap:24px}
+  .c2{grid-template-columns:repeat(2,1fr)}
+  .c3{grid-template-columns:repeat(3,1fr)}
+  .c4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:900px){.c3,.c4{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.c2,.c3,.c4{grid-template-columns:1fr}}
+  .card{
+    background:var(--paper-2);border:1.5px solid var(--border);border-radius:var(--radius);
+    padding:1.5rem;transition:transform .18s ease,box-shadow .18s ease;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(90,66,36,.14)}
+  .card .ico{
+    width:46px;height:46px;border:1.5px solid var(--rule);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:var(--green);
+    background:var(--paper);
+  }
+  .card .ico svg{width:24px;height:24px}
+  .card h3{font-size:1.08rem;letter-spacing:.01em;margin-bottom:8px}
+  .card .en-small{display:block;font-family:"Jost",sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--olive);margin:-4px 0 10px}
+  .card p{font-size:.94rem;color:var(--ink-soft);margin:0}
+
+  /* ---------- Icon strip ---------- */
+  .icon-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:34px}
+  @media(max-width:760px){.icon-strip{grid-template-columns:repeat(2,1fr)}}
+  .icon-item{text-align:center}
+  .icon-item .ring{
+    width:56px;height:56px;border:1.5px solid var(--border);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--green);
+    background:var(--paper-2);
+  }
+  .icon-item .ring svg{width:26px;height:26px}
+  .icon-item .pt{font-family:"Jost",sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);display:block}
+  .icon-item .en{font-family:"Lora",serif;font-style:italic;font-size:.8rem;color:var(--ink-soft);display:block;margin-top:4px}
+
+  /* ---------- Bio section ---------- */
+  .bio-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:38px;align-items:start}
+  @media(max-width:900px){.bio-grid{grid-template-columns:1fr}}
+  .flow{list-style:none;margin-top:18px}
+  .flow li{display:flex;gap:16px;padding:14px 0;border-bottom:1px dashed var(--rule)}
+  .flow li:last-child{border-bottom:0}
+  .flow .num{
+    flex:0 0 32px;width:32px;height:32px;border-radius:50%;background:var(--green-dark);color:var(--paper-2);
+    font-family:"Playfair Display",serif;font-weight:700;font-size:.95rem;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .flow h4{font-family:"Jost",sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--wine);margin-bottom:4px}
+  .flow p{margin:0;font-size:.92rem;color:var(--ink-soft)}
+  .flow .why{display:block;font-style:italic;font-size:.86rem;color:var(--olive);margin-top:5px}
+  .swatches{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
+  .swatch{border:1.5px solid var(--border);border-radius:10px;overflow:hidden;background:var(--paper-2)}
+  .swatch .chip{height:64px;border-bottom:1.5px solid var(--border)}
+  .swatch .cap{padding:9px 11px}
+  .swatch .cap .pt{display:block;font-family:"Jost",sans-serif;font-weight:600;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+  .swatch .cap .en{display:block;font-family:"Lora",serif;font-style:italic;font-size:.74rem;color:var(--ink-soft);margin-top:2px}
+  .chip.pallet{background:
+      repeating-linear-gradient(90deg,rgba(120,84,44,.30) 0 1px,transparent 1px 22px),
+      repeating-linear-gradient(0deg,rgba(120,84,44,.16) 0 1px,transparent 1px 11px),
+      linear-gradient(180deg,#D9B27C,#C79A62)}
+  .chip.euca{background:
+      repeating-linear-gradient(88deg,rgba(96,68,36,.22) 0 2px,transparent 2px 9px),
+      linear-gradient(180deg,#C9A97A,#B08A56)}
+  .chip.demo{background:
+      repeating-linear-gradient(0deg,rgba(90,62,32,.24) 0 1px,transparent 1px 14px),
+      linear-gradient(180deg,#B98E5E,#9C7245)}
+  .chip.terra{background:
+      radial-gradient(circle at 14% 28%,rgba(120,80,44,.40) 0 9%,transparent 10%),
+      radial-gradient(circle at 44% 62%,rgba(120,80,44,.32) 0 12%,transparent 13%),
+      radial-gradient(circle at 76% 30%,rgba(120,80,44,.30) 0 10%,transparent 11%),
+      radial-gradient(circle at 62% 84%,rgba(120,80,44,.26) 0 8%,transparent 9%),
+      radial-gradient(circle at 88% 70%,rgba(120,80,44,.22) 0 7%,transparent 8%),
+      linear-gradient(180deg,#CBB48C,#B79C70)}
+      radial-gradient(circle at 25% 35%,rgba(140,96,52,.35) 0 12%,transparent 13%),
+      radial-gradient(circle at 68% 62%,rgba(140,96,52,.28) 0 14%,transparent 15%),
+      linear-gradient(180deg,#CBB48C,#B79C70)}
+
+  /* ---------- Seal ---------- */
+  .seal{width:186px;height:186px;margin:0 auto}
+  .seal text{font-family:"Jost",sans-serif;font-weight:600;font-size:11.5px;letter-spacing:1.6px;fill:var(--wine);text-transform:uppercase}
+  .seal .inner{font-size:9.5px;letter-spacing:1.2px;fill:var(--green)}
+  .seal circle{fill:none;stroke:var(--border)}
+  .seal .core{color:var(--olive)}
+
+  /* ---------- Dark band ---------- */
+  .band{background:var(--green-dark);color:var(--paper-2);position:relative;overflow:hidden}
+  .band::before{content:"";position:absolute;inset:0;background:var(--grain);background-size:180px;opacity:.07;mix-blend-mode:screen}
+  .band .wrap{position:relative;z-index:2}
+  .band .bl .pt{color:var(--paper-2)}
+  .band .bl .en{color:#C9DFC0}
+  .band .kicker{color:#C0AE86}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:36px}
+  @media(max-width:760px){.stats{grid-template-columns:1fr;gap:22px}}
+  .stat{border-top:1px solid rgba(247,241,224,.35);padding-top:16px}
+  .stat .n{font-family:"Playfair Display",serif;font-weight:800;font-size:clamp(1.9rem,4vw,2.7rem);line-height:1;color:#E9DFC2}
+  .stat .l{font-family:"Jost",sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#C9DFC0;margin-top:10px}
+  .stat .l small{display:block;font-family:"Lora",serif;font-style:italic;text-transform:none;letter-spacing:normal;font-size:.82rem;color:rgba(233,223,194,.75);margin-top:6px}
+
+  /* ---------- Steps ---------- */
+  .steps{display:flex;align-items:stretch;gap:0;margin-top:34px}
+  .step{flex:1;border:1.5px solid var(--border);border-radius:var(--radius);background:var(--paper-2);padding:1.4rem}
+  .step .num{
+    width:34px;height:34px;border-radius:50%;background:var(--green-dark);color:var(--paper-2);
+    font-family:"Playfair Display",serif;font-weight:700;display:flex;align-items:center;justify-content:center;
+    margin-bottom:12px;font-size:.95rem;
+  }
+  .step h3{font-size:1rem;margin-bottom:6px}
+  .step p{font-size:.92rem;color:var(--ink-soft);margin:0}
+  .dash{align-self:center;flex:0 0 54px;position:relative;height:2px;background:repeating-linear-gradient(90deg,var(--border) 0 6px,transparent 6px 12px)}
+  .dash::after{
+    content:"";position:absolute;right:-1px;top:-4px;
+    border-left:8px solid var(--border);border-top:5px solid transparent;border-bottom:5px solid transparent;
+  }
+  @media(max-width:820px){
+    .steps{flex-direction:column;gap:18px}
+    .dash{flex:0 0 auto;width:2px;height:34px;margin:0 auto;background:repeating-linear-gradient(180deg,var(--border) 0 6px,transparent 6px 12px)}
+    .dash::after{right:auto;left:-4px;top:auto;bottom:-1px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:8px solid var(--border)}
+  }
+
+  /* ---------- CTA ---------- */
+  .cta{
+    border:1.5px solid var(--border);border-radius:14px;background:var(--paper-2);
+    padding:clamp(30px,4vw,52px);text-align:center;position:relative;overflow:hidden;
+    box-shadow:0 3px 0 rgba(138,106,69,.16);
+  }
+  .cta .bl{max-width:46ch;margin:0 auto 18px}
+  .cta p{max-width:56ch;margin:0 auto 22px;color:var(--ink-soft);font-size:1rem}
+  .price-tag{
+    display:inline-block;font-family:"Jost",sans-serif;font-weight:500;font-size:.72rem;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--wine);
+    border:1.5px dashed var(--border);border-radius:999px;padding:8px 18px;margin:0 auto 22px;background:var(--paper);
+  }
+  .cta-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+  .cta-note{font-family:"Jost",sans-serif;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--wood);margin-top:20px}
+
+  /* ---------- Action band ---------- */
+  .actionband{background:var(--wine);color:var(--paper-2);padding:20px 0;position:relative;overflow:hidden}
+  .actionband::before{content:"";position:absolute;inset:0;background:var(--grain);background-size:180px;opacity:.07;mix-blend-mode:screen}
+  .actionband .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 18px;text-align:center}
+  .actionband span{font-family:"Jost",sans-serif;font-weight:500;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
+  .actionband .sep{color:rgba(247,241,224,.6);display:flex;align-items:center}
+  .actionband .sep svg{width:18px;height:18px}
+
+  /* ---------- Footer ---------- */
+  footer{padding:38px 0 46px;position:relative}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-end}
+  footer .f-brand{font-family:"Playfair Display",serif;font-weight:800;text-transform:uppercase;color:var(--wine);font-size:.95rem;letter-spacing:.03em}
+  footer .f-line{font-family:"Jost",sans-serif;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--wood);margin-top:6px}
+  footer .f-links{font-family:"Jost",sans-serif;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+  footer .f-links a{border-bottom:1px solid var(--rule);padding-bottom:2px}
+  footer .f-links a:hover{color:var(--wine)}
+
+  /* ---------- WhatsApp float ---------- */
+  .wa-float{
+    position:fixed;bottom:22px;right:22px;z-index:60;width:56px;height:56px;border-radius:50%;
+    background:var(--green-dark);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 18px rgba(34,69,46,.34);transition:transform .16s ease;
+    border:1.5px solid var(--paper-2);
+  }
+  .wa-float:hover{transform:translateY(-2px) scale(1.04)}
+  .wa-float svg{width:26px;height:26px;fill:var(--paper-2)}
+
+  /* ---------- Reveal ---------- */
+  .fx{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .fx.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.fx{opacity:1;transform:none;transition:none}}
+  @media(max-width:520px){
+    .logo{font-size:.88rem}
+    .logo small{font-size:.5rem;letter-spacing:.14em}
+    .nav{height:auto;padding:12px 0}
+    .hero{padding-top:26px}
+    .sec-head .lead{font-size:1.02rem}
+    .stat .n{font-size:1.9rem}
+    .actionband span{font-size:.66rem;letter-spacing:.14em}
+  }
+</style>
 </head>
 <body>
-    <!-- Floating WhatsApp Button -->
-    <a class="wa-float" href="https://wa.me/5594992094196?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20casa%20na%20%C3%A1rvore." target="_blank" rel="noopener" aria-label="WhatsApp">
-        <svg viewBox="0 0 24 24"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.7 6L4 29l8.2-1.6c1.1.3 2.2.5 3.3.5h.1c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.9c-1.1 0-2.2-.2-3.2-.6l-.6-.2-4.9 1 1-4.7-.3-.6A9.9 9.9 0 0 1 16 5.1a9.9 9.9 0 0 1 0 19.8zm5.5-7.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4z"/></svg>
-    </a>
 
-    <header>
-        <div class="wrap nav">
-            <div class="logo">Eco-Sítio <span>La Querência</span></div>
-            <a class="btn btn-sm" href="#reserva">Reservar</a>
+<!-- ====== SVG sprite: ícones e ornamento ====== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="leaf-shape" fill="none" stroke="currentColor" vector-effect="non-scaling-stroke">
+      <path d="M13 22C12.2 15 13.4 8.6 17.6 3" stroke-width="1.5" stroke-linecap="round"/>
+      <ellipse cx="16.4" cy="4.6" rx="3" ry="1.7" transform="rotate(-46 16.4 4.6)" stroke-width="1.1"/>
+      <ellipse cx="12.1" cy="7.4" rx="3" ry="1.7" transform="rotate(34 12.1 7.4)" stroke-width="1.1"/>
+      <ellipse cx="16.9" cy="10.2" rx="3" ry="1.7" transform="rotate(-26 16.9 10.2)" stroke-width="1.1"/>
+      <ellipse cx="12.6" cy="13.4" rx="2.9" ry="1.6" transform="rotate(30 12.6 13.4)" stroke-width="1.1"/>
+      <ellipse cx="15.6" cy="17" rx="2.7" ry="1.5" transform="rotate(-18 15.6 17)" stroke-width="1.1"/>
+    </g>
+    <symbol id="i-sprig" viewBox="0 0 26 24"><use href="#leaf-shape"/></symbol>
+
+    <symbol id="i-tree" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22v-7"/>
+      <path d="M9.2 22h5.6"/>
+      <path d="M12 15 9 12.6M12 14.4l3-2.4"/>
+      <path d="M5.6 9.8C5.6 6 8.5 3 12 3s6.4 3 6.4 6.8c0 1.9-1.2 3.5-2.9 3.9"/>
+      <path d="M8.4 10.2c-.9-.6-1.5-1.6-1.5-2.8"/>
+      <path d="M15.6 10.2c.9-.6 1.5-1.6 1.5-2.8"/>
+      <path d="M8.6 11.6h6.8v4.2H8.6z"/>
+      <path d="M8.6 11.6 12 9.2l3.4 2.4"/>
+    </symbol>
+
+    <symbol id="i-vanilla" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 10.6c-1.6-1.1-2.2-2.9-1.6-4.6.6-1.7 2.4-2.7 4.1-2.1 1.6.6 2.5 2.3 2 4-.4 1.4-1.6 2.4-3 2.6"/>
+      <path d="M12 10.6c-1.1-1.6-2.9-2.2-4.6-1.6-1.7.6-2.7 2.4-2.1 4.1.6 1.6 2.3 2.5 4 2 1.4-.4 2.4-1.6 2.7-3"/>
+      <ellipse cx="12" cy="12" rx="2.2" ry="1.6" transform="rotate(-30 12 12)"/>
+      <path d="M11.4 14.6c-.4 3 .2 5.4 1.8 7.4M11.4 14.6c-2.2 1.8-3.6 4-4.2 6.6"/>
+    </symbol>
+
+    <symbol id="i-bird" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 13.6c3.4-.4 6.2-2 8.2-4.6 1.1-1.4 2.6-2.2 4.3-2.2 1.8 0 3.4.7 4.6 2"/>
+      <path d="M3 13.6c1.9 2.4 4.6 3.8 7.9 3.8h2.6c2.4 0 4.4-1 5.8-2.8"/>
+      <path d="M11.2 9.4 9.6 5.4M14.4 8.6l1.4-3.4M15.5 9.1l3.9.5"/>
+    </symbol>
+
+    <symbol id="i-basket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 10.4h16l-1.6 8.2a1.6 1.6 0 0 1-1.6 1.3H7.2a1.6 1.6 0 0 1-1.6-1.3z"/>
+      <path d="M8.6 10.4 12 4.8l3.4 5.6"/>
+      <path d="M8.4 14v2.6M12 14v2.6M15.6 14v2.6"/>
+      <path d="M9.6 10.2c.7-.6 1.5-.9 2.4-.9s1.7.3 2.4.9"/>
+    </symbol>
+
+    <symbol id="i-craft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <g transform="rotate(-45 12 12)">
+        <rect x="8.4" y="3.4" width="9.2" height="4.4" rx="1.1"/>
+        <path d="M13 7.8v12.8"/>
+      </g>
+      <path d="M4 20.4h7"/>
+    </symbol>
+
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 3v2.4M12 18.6V21M3 12h2.4M18.6 12H21M5.6 5.6l1.7 1.7M16.7 16.7l1.7 1.7M18.4 5.6l-1.7 1.7M7.3 16.7l-1.7 1.7"/>
+    </symbol>
+
+    <symbol id="i-drop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3.2c3.1 4 5 6.7 5 9.4a5 5 0 0 1-10 0c0-2.7 1.9-5.4 5-9.4z"/>
+      <path d="M10 12.6c0 1.1.9 2 2 2"/>
+    </symbol>
+
+    <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 19c0-7.2 4.4-12.4 13.6-13.6C20 14.8 14.6 19.4 7 19.4"/>
+      <path d="M5.6 18.4c2.6-4 6-6.8 10.2-8.4"/>
+    </symbol>
+
+    <symbol id="i-wa" viewBox="0 0 32 32">
+      <path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.7 6L4 29l8.2-1.6c1.1.3 2.2.5 3.3.5h.1c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.9c-1.1 0-2.2-.2-3.2-.6l-.6-.2-4.9 1 1-4.7-.3-.6A9.9 9.9 0 0 1 16 5.1a9.9 9.9 0 0 1 0 19.8zm5.5-7.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<a class="wa-float" href="https://wa.me/5594992094196?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20casa%20na%20%C3%A1rvore%20do%20Eco-S%C3%ADtio%20La%20Quer%C3%AAncia." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 32 32"><use href="#i-wa"/></svg>
+</a>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">Eco-Sítio <span>La Querência</span><small>Estiva de Arembepe · Camaçari/BA</small></a>
+    <nav class="nav-right">
+      <div class="nav-links">
+        <a href="#experiencia">A experiência</a>
+        <a href="#bioarquitetura">Bioarquitetura</a>
+        <a href="#reserva">Como reservar</a>
+      </div>
+      <a class="btn sm" href="#reserva">Reservar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="sprig tl"><svg viewBox="0 0 26 24"><use href="#leaf-shape"/></svg></div>
+    <div class="sprig tr"><svg viewBox="0 0 26 24"><use href="#leaf-shape"/></svg></div>
+    <div class="wrap hero-grid">
+      <div class="fx">
+        <span class="eyebrow">Estiva de Arembepe · Camaçari/BA · 1h de Salvador</span>
+        <h1 class="bl h-xl">
+          <span class="pt">Dormir na árvore, no meio da mata atlântica.</span>
+          <span class="en">Sleep in the tree, amidst the Atlantic forest.</span>
+        </h1>
+        <div class="rule-leaf"><svg viewBox="0 0 24 24"><use href="#i-leaf"/></svg></div>
+        <p class="lead">Uma casa na árvore, 2,5 ha de mata e baunilha nativa a 1h de Salvador. Construímos com as próprias mãos — e queremos que você durma aqui.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#reserva">Quero minha data</a>
+          <a class="btn ghost" href="#experiencia">Conhecer o sítio</a>
         </div>
-    </header>
+        <div class="hero-strip">
+          <span class="kicker"><span class="dot"></span>Reserva direta, sem intermediário</span>
+          <span class="kicker"><span class="dot"></span>Unidade-piloto em finalização</span>
+        </div>
+      </div>
 
-    <!-- Hero Section -->
-    <section class="hero fade-up delay-1">
-        <div class="wrap content">
-            <span class="eyebrow">Estiva de Arembepe · Camaçari/BA</span>
-            <h1 class="bilingual-headline">
-                <span class="pt">Dormir na árvore, no meio da mata atlântica.</span>
-                <span class="en">Sleep in the tree, amidst the Atlantic forest.</span>
-            </h1>
-            <p class="fade-up delay-2">Uma experiência de imersão no Eco-Sítio La Querência: a casa na árvore, a baunilha nativa, o canto das aves e a bioarquitetura que devolve você ao ciclo natural. Reserve direto, sem taxa de intermediário.</p>
-            <div class="divider"></div>
-            <a class="btn fade-up delay-3" href="#reserva">Quero minha data</a>
-            &nbsp;
-            <a class="btn ghost fade-up delay-4" href="#experiencia">Conhecer o sítio</a>
-            <div class="illustration fade-up delay-5">
-                <!-- Illustration will be inserted here via CSS or JS - keeping empty for now -->
-                <!-- In production, this would contain an image matching the prompt: -->
-                <!-- "Hand-drawn pen and ink illustration with soft watercolor wash, naturalist field-guide style, warm parchment background, lush tropical vegetation, earthy palette of terracotta, ochre, sage green and muted blue, fine crosshatching, subtle paper texture, no text, [subject]" -->
-                <!-- For now, we'll leave it as a placeholder that can be filled with CSS background or JS -->
-                <div style="width: 300px; height: 200px; background: var(--paper); border: 1px dashed var(--neutral-earth); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--neutral-warm); font-family: 'Josefin Sans', sans-serif; font-size: .9rem;">
-                    Ilustração da árvore<br>e da mata atlântica
+      <figure class="illus fx" style="transition-delay:.12s">
+        <svg viewBox="0 0 640 520" role="img" aria-label="Ilustração de campo: a casa na árvore suspensa na copa, com bananeiras, aves e a serra ao fundo.">
+          <g fill="none" stroke="#4A3B2A" stroke-linecap="round" stroke-linejoin="round">
+            <!-- sol -->
+            <circle cx="540" cy="84" r="28" stroke-width="1.6" fill="#EFD9A6" fill-opacity=".5"/>
+            <g stroke-width="1.3" opacity=".75">
+              <path d="M540 42v-13M540 138v-13M498 84h-13M594 84h-13M510 54l-9-9M578 122l9 9M570 54l9-9M502 122l-9 9"/>
+            </g>
+            <!-- serra ao fundo -->
+            <path d="M0 302c46-8 74-40 108-40 30 0 44 20 70 20 34 0 52-30 88-30 40 0 58 34 96 34 44 0 62-26 100-26 40 0 62 30 106 30 26 0 46-10 72-18" stroke-width="1.4" opacity=".7"/>
+            <path d="M0 330c60-10 92-34 136-34 40 0 60 22 96 22 44 0 66-32 110-32 46 0 68 34 112 34 48 0 74-26 118-26 24 0 44 8 68 16" stroke-width="1.2" opacity=".4"/>
+            <g stroke-width=".9" opacity=".35">
+              <path d="M118 302v20M164 290v26M262 294v24M318 298v22M420 294v22M508 298v20"/>
+            </g>
+            <!-- aves -->
+            <g stroke-width="1.7" opacity=".85">
+              <path d="M250 80c6-7 13-7 19 0 6-7 13-7 19 0"/>
+              <path d="M440 62c5-6 11-6 16 0 5-6 11-6 16 0"/>
+              <path d="M196 122c4-5 9-5 13 0 4-5 9-5 13 0" opacity=".65"/>
+            </g>
+            <!-- tronco -->
+            <path d="M294 470c2-54 4-104 8-150" stroke-width="14"/>
+            <g stroke-width="1" opacity=".45">
+              <path d="M290 452c2-16 4-32 5-48M300 448c2-14 3-28 4-42"/>
+            </g>
+            <path d="M300 330c-16-22-40-38-70-44" stroke-width="8"/>
+            <path d="M302 322c18-22 44-38 76-44" stroke-width="8"/>
+            <!-- copa -->
+            <path d="M250 300c-38-6-60-38-52-74 6-32 34-54 66-50 6-36 40-62 78-60 40 2 70 32 74 70 34-6 64 16 70 48 6 34-18 64-52 68-8 26-30 44-56 46-16 26-48 38-76 30-26-8-44-30-46-56-8-6-16-14-20-22z" stroke-width="1.8" fill="#8FA968" fill-opacity=".2"/>
+            <g stroke-width="1" opacity=".3">
+              <path d="M280 250c10-26 32-46 60-54M360 130c-6 24-20 44-42 56M430 250c14 2 26 8 34 18M252 200c16-4 30-2 42 4"/>
+            </g>
+            <!-- plataforma + casa -->
+            <path d="M452 334v136" stroke-width="6"/>
+            <path d="M330 336 296 404" stroke-width="4"/>
+            <path d="M318 330h160" stroke-width="4.5"/>
+            <path d="M330 250h116v66H330z" stroke-width="2" fill="#F6EDD8" fill-opacity=".92"/>
+            <path d="M320 250 388 206l68 44z" stroke-width="2" fill="#C08A55" fill-opacity=".5"/>
+            <g stroke-width="1.5">
+              <path d="M348 250v66M368 250v66M388 250v66M408 250v66M428 250v66"/>
+            </g>
+            <g stroke-width="1.8">
+              <path d="M340 262h26v22h-26z" fill="#4A3B2A" fill-opacity=".12"/>
+              <path d="M404 262h26v22h-26z" fill="#4A3B2A" fill-opacity=".12"/>
+              <path d="M370 284h24v32h-24z" stroke-width="1.6" fill="#B5442E" fill-opacity=".22"/>
+            </g>
+            <g stroke-width="1.4">
+              <path d="M318 316v14M470 316v14M330 330v-12M352 330v-12M374 330v-12M396 330v-12M418 330v-12M440 330v-12M462 330v-12"/>
+            </g>
+            <!-- escada -->
+            <path d="M452 330 476 470" stroke-width="2.4"/>
+            <path d="M470 330 494 470" stroke-width="2.4"/>
+            <g stroke-width="1.4">
+              <path d="M456 366h20M461 396h20M466 426h20M471 454h20"/>
+            </g>
+            <!-- rede -->
+            <path d="M350 334c26 20 62 20 88 6-26 26-62 30-88 4" stroke-width="1.4" fill="#C9A97A" fill-opacity=".3"/>
+            <!-- folhagem que abraça a casa -->
+            <g fill="#8FA968" fill-opacity=".22" stroke-width="1.4">
+              <path d="M300 292c-16-4-26-18-24-34 2-16 16-26 32-24 6-12 20-18 32-12 10 6 14 18 10 28-14 2-26 12-30 26-6 8-14 14-20 16z"/>
+              <path d="M432 242c6-14 20-22 34-18 12 4 20 16 18 28-4 12-16 20-30 18-10-2-18-6-22-14z"/>
+              <path d="M324 238c-8-10-8-24 2-32 10-8 24-6 30 4-6 8-10 18-10 28-8 2-16 2-22 0z"/>
+            </g>
+            <!-- bananeiras -->
+            <g stroke-width="1.6">
+              <path d="M96 470c4-40 6-70 4-96"/>
+              <path d="M100 374c-30-6-50-24-58-48 26 2 48 16 62 38"/>
+              <path d="M100 374c30-8 48-28 54-52-26 4-46 20-58 42"/>
+              <path d="M99 402c-24 0-42-10-54-28 22-2 42 6 56 22M99 402c24-2 40-14 48-32-22 0-40 10-50 26"/>
+              <path d="M99 434c-20 2-36-4-46-18 18-2 34 4 46 16M99 434c20-4 34-14 40-30-18 2-32 12-40 26"/>
+            </g>
+            <g stroke-width="1.5">
+              <path d="M572 470c2-26 2-46 0-64"/>
+              <path d="M572 406c-18-4-30-16-36-32 16 0 30 10 38 24M572 406c18-6 28-18 32-34-16 2-28 12-34 26"/>
+            </g>
+            <!-- chão -->
+            <path d="M0 470h640" stroke-width="1.8"/>
+            <g stroke-width="1.2" opacity=".6">
+              <path d="M40 470c0-10 4-16 10-20M56 470c0-8-4-14-10-18M156 470c0-12 5-18 11-22M174 470c0-10-4-16-11-20M250 470c0-9 4-14 9-18M266 470c0-7-4-13-9-17M600 470c0-11 4-17 10-21M616 470c0-9-4-15-10-19"/>
+            </g>
+          </g>
+        </svg>
+        <figcaption>Ilustração de campo · a casa na árvore do sítio</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="rule"></div>
+
+  <!-- ================= A EXPERIÊNCIA ================= -->
+  <section id="experiencia" class="block">
+    <div class="wrap">
+      <div class="sec-head center fx">
+        <div class="kicker-row"><span class="kicker">A experiência</span></div>
+        <h2 class="bl h-lg">
+          <span class="pt">Mais que uma hospedagem — um dia fora do relógio.</span>
+          <span class="en">More than lodging — a day off the clock.</span>
+        </h2>
+        <p class="lead" style="margin-left:auto;margin-right:auto">Aqui a rotina desacelera. Você acorda entre folhas, visita a baunilha nativa, observa as aves e faz parte de um projeto que vive da conservação e da produção rural de verdade.</p>
+      </div>
+
+      <div class="grid c3">
+        <article class="card fx">
+          <span class="ico"><svg viewBox="0 0 24 24"><use href="#i-tree"/></svg></span>
+          <h3>Casa na árvore</h3>
+          <span class="en-small">The treehouse</span>
+          <p>Suspensa entre as copas, com vista aberta para a mata. Estrutura em madeira tratada e reaproveitada, pensada para você se sentir dentro da floresta — não em cima dela.</p>
+        </article>
+        <article class="card fx" style="transition-delay:.06s">
+          <span class="ico"><svg viewBox="0 0 24 24"><use href="#i-vanilla"/></svg></span>
+          <h3>Baunilha nativa</h3>
+          <span class="en-small">Native vanilla</span>
+          <p>Caminhe pelo pomar de baunilha em conservação e entenda a planta que vale mais que ouro e ainda é rara no mundo.</p>
+        </article>
+        <article class="card fx" style="transition-delay:.12s">
+          <span class="ico"><svg viewBox="0 0 24 24"><use href="#i-bird"/></svg></span>
+          <h3>Aves em liberdade</h3>
+          <span class="en-small">Birds in the open</span>
+          <p>Projeto de conservação com as emas. Ver uma atravessando o campo ao amanhecer é o cartão-postal da estadia.</p>
+        </article>
+        <article class="card fx">
+          <span class="ico"><svg viewBox="0 0 24 24"><use href="#i-basket"/></svg></span>
+          <h3>Do pomar ao prato</h3>
+          <span class="en-small">From orchard to table</span>
+          <p>Horta e fruticultura própria, aves caipiras. O que o sítio produz é parte da experiência — não pano de fundo para foto.</p>
+        </article>
+        <article class="card fx" style="transition-delay:.06s">
+          <span class="ico"><svg viewBox="0 0 24 24"><use href="#i-craft"/></svg></span>
+          <h3>Bioarquitetura real</h3>
+          <span class="en-small">Real bio-architecture</span>
+          <p>Eucalipto tratado, pallets, madeira reaproveitada, banheiros secos e evapotranspiração. Conforto que respeita o solo.</p>
+        </article>
+        <article class="card fx" style="transition-delay:.12s">
+          <span class="ico"><svg viewBox="0 0 24 24"><use href="#i-sun"/></svg></span>
+          <h3>Tranquilidade real</h3>
+          <span class="en-small">Real quiet</span>
+          <p>Longe do trânsito de Salvador, com o verde ao redor e o silêncio que falta no seu dia a dia.</p>
+        </article>
+      </div>
+
+      <div class="icon-strip">
+        <div class="icon-item fx">
+          <span class="ring"><svg viewBox="0 0 24 24"><use href="#i-leaf"/></svg></span>
+          <span class="pt">Mata protegida</span>
+          <span class="en">2,5 ha preservados</span>
+        </div>
+        <div class="icon-item fx" style="transition-delay:.05s">
+          <span class="ring"><svg viewBox="0 0 24 24"><use href="#i-drop"/></svg></span>
+          <span class="pt">Água cuidada</span>
+          <span class="en">Sistema de evapotranspiração</span>
+        </div>
+        <div class="icon-item fx" style="transition-delay:.1s">
+          <span class="ring"><svg viewBox="0 0 24 24"><use href="#i-craft"/></svg></span>
+          <span class="pt">Feito à mão</span>
+          <span class="en">Construído pelos donos</span>
+        </div>
+        <div class="icon-item fx" style="transition-delay:.15s">
+          <span class="ring"><svg viewBox="0 0 24 24"><use href="#i-sun"/></svg></span>
+          <span class="pt">Sol e vento</span>
+          <span class="en">Ventilação e luz natural</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BIOARQUITETURA ================= -->
+  <section id="bioarquitetura" class="block" style="background:var(--paper-3);border-top:1.5px solid var(--border);border-bottom:1.5px solid var(--border)">
+    <div class="wrap">
+      <div class="sec-head fx">
+        <div class="kicker-row"><span class="kicker">Bioarquitetura</span></div>
+        <h2 class="bl h-lg">
+          <span class="pt">Construir de forma diferente.</span>
+          <span class="en">Building differently.</span>
+        </h2>
+        <p class="lead">Essa casa nasceu da ideia de que reaproveitar não significa abrir mão do conforto. Cada madeira reaproveitada carrega uma história — e é isso que dá caráter ao lugar. É uma casa construída com material que já teve outro uso, e que aqui ganha nova vida. Esperamos que sua estadia inspire um novo olhar sobre o que chamamos de “descartado”.</p>
+      </div>
+
+      <div class="bio-grid">
+        <div class="fx">
+          <div class="panel">
+            <span class="panel-label green">Como funciona · How it works</span>
+            <ol class="flow">
+              <li>
+                <span class="num">1</span>
+                <div>
+                  <h4>Materiais que já existiam</h4>
+                  <p>Madeira descartada, pallets de eucalipto e madeira de demolição recolhidos na região.</p>
+                  <span class="why">Reaproveitar não é abrir mão do conforto.</span>
                 </div>
+              </li>
+              <li>
+                <span class="num">2</span>
+                <div>
+                  <h4>Seleção e limpeza manual</h4>
+                  <p>Cada peça é escolhida, limpa e preparada à mão antes de virar parede, piso ou estrutura.</p>
+                  <span class="why">A marca do material antigo fica visível — de propósito.</span>
+                </div>
+              </li>
+              <li>
+                <span class="num">3</span>
+                <div>
+                  <h4>Ventilação e luz natural</h4>
+                  <p>Aberturas altas e opostas criam um fluxo de ar cruzado; a luz entra ampla durante o dia.</p>
+                  <span class="why">Menos energia, mais conforto em qualquer estação.</span>
+                </div>
+              </li>
+              <li>
+                <span class="num">4</span>
+                <div>
+                  <h4>Saneamento ecológico</h4>
+                  <p>Banheiro seco e tanque de evapotranspiração: um sistema natural que trata os resíduos e devolve água e nutrientes para as plantas.</p>
+                  <span class="why">Não polui o solo nem o lençol freático.</span>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="fx" style="transition-delay:.1s">
+          <svg class="seal" viewBox="0 0 200 200" role="img" aria-label="Selo: unidade-piloto em finalização, reserva direta sem intermediários.">
+            <defs>
+              <path id="sealTop" d="M100,100 m-78,0 a78,78 0 1,1 156,0"/>
+              <path id="sealBot" d="M100,100 m-68,0 a68,68 0 1,0 136,0"/>
+            </defs>
+            <circle cx="100" cy="100" r="90" stroke-width="1.4"/>
+            <circle cx="100" cy="100" r="82" stroke-width="1"/>
+            <circle cx="100" cy="100" r="54" stroke-width="1.4"/>
+            <text font-size="10" letter-spacing="1"><textPath href="#sealTop" startOffset="50%" text-anchor="middle" textLength="236" lengthAdjust="spacingAndGlyphs">UNIDADE-PILOTO EM FINALIZAÇÃO</textPath></text>
+            <text class="inner" font-size="8.5" letter-spacing=".8"><textPath href="#sealBot" startOffset="50%" text-anchor="middle" textLength="214" lengthAdjust="spacingAndGlyphs">RESERVA DIRETA SEM INTERMEDIÁRIOS</textPath></text>
+            <text y="100" x="100" text-anchor="middle" style="font-family:'Playfair Display',serif;font-size:13px;font-weight:800;letter-spacing:.6px;fill:var(--green)">LA</text>
+            <text y="122" x="100" text-anchor="middle" style="font-family:'Playfair Display',serif;font-size:12.5px;font-weight:800;letter-spacing:.2px;fill:var(--green)">QUERÊNCIA</text>
+            <g class="core" transform="translate(87,46) scale(1.4)">
+              <path d="M12 21c0-6 2.4-11.4 7.2-16.2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              <ellipse cx="12.6" cy="6.4" rx="3.1" ry="1.9" transform="rotate(-42 12.6 6.4)" fill="none" stroke="currentColor" stroke-width="1.1"/>
+              <ellipse cx="9.4" cy="9.6" rx="3.1" ry="1.9" transform="rotate(38 9.4 9.6)" fill="none" stroke="currentColor" stroke-width="1.1"/>
+              <ellipse cx="14.6" cy="10.8" rx="3.1" ry="1.9" transform="rotate(-42 14.6 10.8)" fill="none" stroke="currentColor" stroke-width="1.1"/>
+            </g>
+          </svg>
+
+          <div class="panel" style="margin-top:18px">
+            <span class="panel-label">Detalhes dos materiais · Materials</span>
+            <div class="swatches">
+              <div class="swatch">
+                <div class="chip pallet"></div>
+                <div class="cap"><span class="pt">Pallets reaproveitados</span><span class="en">Reclaimed pallets</span></div>
+              </div>
+              <div class="swatch">
+                <div class="chip euca"></div>
+                <div class="cap"><span class="pt">Eucalipto tratado</span><span class="en">Treated eucalyptus</span></div>
+              </div>
+              <div class="swatch">
+                <div class="chip demo"></div>
+                <div class="cap"><span class="pt">Madeira reaproveitada</span><span class="en">Reused timber</span></div>
+              </div>
+              <div class="swatch">
+                <div class="chip terra"></div>
+                <div class="cap"><span class="pt">Terra e materiais locais</span><span class="en">Earth &amp; local materials</span></div>
+              </div>
             </div>
-        </div>
-    </section>
+          </div>
 
-    <!-- Experience Section -->
-    <section id="experiencia" class="section fade-up">
-        <div class="wrap">
-            <span class="kicker">A experiência</span>
-            <h2 class="bilingual-headline">
-                <span class="pt">Mais que uma hospedagem — um dia fora do relógio.</span>
-                <span class="en">More than lodging — a day off the clock.</span>
-            </h2>
-            <p class="lead fade-up delay-1">Aqui a rotina desacelera. Você acorda entre folhas, visita a baunilha nativa, observa as emas e faz parte de um projeto que vive da conservação e da produção rural de verdade.</p>
-            <div class="grid c3">
-                <div class="card fade-up delay-2">
-                    <span class="ico">🌳</span>
-                    <h3>Casa na árvore</h3>
-                    <p>Suspensa entre as copas, com vista aberta para a mata. Estrutura em madeira tratada e reaproveitada, pensada para você se sentir dentro da floresta — não em cima dela.</p>
-                </div>
-                <div class="card fade-up delay-3">
-                    <span class="ico">🌿</span>
-                    <h3>Baunilha nativa</h3>
-                    <p>Caminhe pelo pomar de baunilha em conservação e entenda a planta que vale mais que ouro e ainda é rara no mundo.</p>
-                </div>
-                <div class="card fade-up delay-4">
-                    <span class="ico">🦅</span>
-                    <h3>Aves em liberdade</h3>
-                    <p>Projeto de conservação que devolve emas ao céu. Ver uma pairando acima do sítio é o cartão-postal da estadia.</p>
-                </div>
-                <div class="card fade-up delay-5">
-                    <span class="ico">🥬</span>
-                    <h3>Do pomar ao prato</h3>
-                    <p>Horta e fruticultura própria. Frutas colhidas na hora e sabores que só a terra dá.</p>
-                </div>
-                <div class="card fade-up delay-6">
-                    <span class="ico">♻️</span>
-                    <h3>Bioarquitetura</h3>
-                    <p>Construção com eucalipto tratado, pallets e madeira reaproveitada, banheiros secos e evapotranspiração. Conforto que respeita o solo.</p>
-                </div>
-                <div class="card fade-up delay-7">
-                    <span class="ico">🌅</span>
-                    <h3>Tranquilidade real</h3>
-                    <p>Longe do trânsito de Salvador, com o verde ao redor e o silêncio que falta no seu dia a dia.</p>
-                </div>
-            </div>
+          <div class="panel alert" style="margin-top:18px">
+            <span class="panel-label" style="color:var(--terra)">Lembre-se · Remember</span>
+            <p style="margin:0;font-size:.92rem;color:var(--ink-soft)">O sistema de saneamento só funciona com resíduo orgânico. Nada de papel, absorventes, fraldas, cotonetes, fio dental, preservativos, cabelo ou produtos de limpeza agressivos. Obrigado por cuidar do sistema.</p>
+            <p class="en-body" style="margin:.6rem 0 0;font-size:.86rem">Please keep it organic only — the system works with nature, not against it.</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Stats Section -->
-    <section class="dark section fade-up">
-        <div class="wrap">
-            <span class="kicker" style="color:#e9c9a8">O sítio em números</span>
-            <h2 class="bilingual-headline">
-                <span class="pt">Um lugar pensado para ficar, não só passar.</span>
-                <span class="en">A place meant to stay, not just pass through.</span>
-            </h2>
-            <div class="stats">
-                <div class="stat fade-up delay-1">
-                    <div class="n">2,5 ha</div>
-                    <div class="l">de mata e produção rural protegida</div>
-                </div>
-                <div class="stat fade-up delay-2">
-                    <div class="n">6 unidades</div>
-                    <div class="l">em construção: casas na árvore, cabanas e glamping</div>
-                </div>
-                <div class="stat fade-up delay-3">
-                    <div class="n">100%</div>
-                    <div class="l">reserva direta — seu dinheiro vai para o sítio</div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ================= NÚMEROS ================= -->
+  <section class="band block">
+    <div class="wrap">
+      <div class="sec-head fx">
+        <div class="kicker-row"><span class="kicker">O sítio em números</span></div>
+        <h2 class="bl h-lg">
+          <span class="pt">Um lugar pensado para ficar, não só passar.</span>
+          <span class="en">A place meant to stay, not just pass through.</span>
+        </h2>
+      </div>
+      <div class="stats">
+        <div class="stat fx"><div class="n">2,5 ha</div><div class="l">de mata e produção rural<small>Atlantic forest and farmland</small></div></div>
+        <div class="stat fx" style="transition-delay:.08s"><div class="n">6 unidades</div><div class="l">no projeto: casas na árvore, cabanas e glamping<small>Planned: treehouses, cabins, glamping</small></div></div>
+        <div class="stat fx" style="transition-delay:.16s"><div class="n">100%</div><div class="l">reserva direta — seu dinheiro vai para o sítio<small>Direct booking, no middlemen</small></div></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- How to Reserve Section -->
-    <section class="section fade-up">
-        <div class="wrap">
-            <span class="kicker">Como reservar</span>
-            <h2 class="bilingual-headline">
-                <span class="pt">Sem app, sem taxa. Só o seu WhatsApp.</span>
-                <span class="en">No app, no fees. Just your WhatsApp.</span>
-            </h2>
-            <p class="lead fade-up delay-1">Escolhemos o caminho mais simples: você conversa direto com quem cuida do sítio, confere a disponibilidade e fecha a data. Sem comissão de plataforma retendo parte da sua diária.</p>
-            <div class="steps">
-                <div class="step fade-up delay-1">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Chame no WhatsApp</h3>
-                        <p>Me diga as datas e quantas pessoas. Te confirmo a disponibilidade na hora.</p>
-                    </div>
-                </div>
-                <div class="step fade-up delay-2">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Confira e combine</h3>
-                        <p>Almoço do pomar, visita à baunilha, horário de chegada — tudo sob medida.</p>
-                    </div>
-                </div>
-                <div class="step fade-up delay-3">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Garanta a data</h3>
-                        <p>Você faz a reserva e chega pronto para a experiência. Simples assim.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ================= COMO RESERVAR ================= -->
+  <section id="reserva" class="block">
+    <div class="wrap">
+      <div class="sec-head center fx">
+        <div class="kicker-row"><span class="kicker">Como reservar</span></div>
+        <h2 class="bl h-lg">
+          <span class="pt">Sem app, sem taxa. Só o seu WhatsApp.</span>
+          <span class="en">No app, no fees. Just your WhatsApp.</span>
+        </h2>
+        <p class="lead" style="margin-left:auto;margin-right:auto">Escolhemos o caminho mais simples: você conversa direto com quem cuida do sítio, confere a disponibilidade e fecha a data. Sem comissão de plataforma retendo parte da sua diária.</p>
+      </div>
 
-    <!-- Reservation CTA -->
-    <section id="reserva" class="section">
-        <div class="wrap">
-            <div class="cta-box fade-up">
-                <h2>Garanta sua data</h2>
-                <p class="price-tag">Diária sob consulta · <span style="color:#ffd9b8">[PREENCHER: R$ ___]</span></p>
-                <p>Fale agora com a gente pelo WhatsApp e bloqueie a sua estadia na casa na árvore. Vagas limitadas por época.</p>
-                <!-- PREENCHER: substitua o numero (com DDD e código do país 55) abaixo -->
-                <a class="btn" id="wa-main" href="https://wa.me/5594992094196?text=Ol%C3%A1!%20Quero%20reservar%20a%20casa%20na%20%C3%A1rvore%20do%20Eco-S%C3%ADtio%20La%20Quer%C3%Aancia." target="_blank" rel="noopener">Reservar pelo WhatsApp</a>
-            </div>
+      <div class="steps">
+        <div class="step fx">
+          <div class="num">1</div>
+          <h3>Chame no WhatsApp</h3>
+          <p>Diga as datas e quantas pessoas. Confirmamos a disponibilidade na hora.</p>
         </div>
-    </section>
+        <div class="dash" aria-hidden="true"></div>
+        <div class="step fx" style="transition-delay:.08s">
+          <div class="num">2</div>
+          <h3>Confira e combine</h3>
+          <p>Almoço do pomar, visita à baunilha, horário de chegada — tudo sob medida.</p>
+        </div>
+        <div class="dash" aria-hidden="true"></div>
+        <div class="step fx" style="transition-delay:.16s">
+          <div class="num">3</div>
+          <h3>Garanta a data</h3>
+          <p>Você faz a reserva e chega pronto para a experiência. Simples assim.</p>
+        </div>
+      </div>
 
-    <footer class="footer">
-        <div class="wrap">
-            <div>Eco-Sítio La Querência · Estiva de Arembepe, Camaçari/BA</div>
-            <div>Reserva direta · <a id="wa-foot" href="https://wa.me/5594992094196">WhatsApp</a></div>
+      <div class="cta fx" style="margin-top:38px">
+        <h2 class="bl h-md">
+          <span class="pt">Garanta sua data</span>
+          <span class="en">Book your dates</span>
+        </h2>
+        <p style="margin-bottom:18px"><span class="price-tag">Diária sob consulta · [PREENCHER: R$ ___]</span></p>
+        <p>Fale agora com a gente pelo WhatsApp e bloqueie a sua estadia na casa na árvore. Vagas limitadas por época.</p>
+        <div class="cta-actions">
+          <a class="btn" id="wa-main" href="https://wa.me/5594992094196?text=Ol%C3%A1!%20Quero%20reservar%20a%20casa%20na%20%C3%A1rvore%20do%20Eco-S%C3%ADtio%20La%20Quer%C3%AAncia." target="_blank" rel="noopener">Reservar pelo WhatsApp</a>
+          <a class="btn ghost" href="#experiencia">Ver a experiência</a>
         </div>
-    </footer>
+        <div class="cta-note">Resposta direta dos donos · sem intermediário</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="actionband">
+  <div class="wrap">
+    <span>Não construímos hospedagens. Construímos um sistema que se sustenta sozinho.</span>
+    <span class="sep" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 19c0-7.2 4.4-12.4 13.6-13.6C20 14.8 14.6 19.4 7 19.4"/><path d="M5.6 18.4c2.6-4 6-6.8 10.2-8.4"/></svg></span>
+    <span>We don't build lodging. We build a system that sustains itself.</span>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="f-brand">Eco-Sítio La Querência</div>
+      <div class="f-line">Estiva de Arembepe · Camaçari/BA · Brasil</div>
+    </div>
+    <div class="f-links">
+      <a id="wa-foot" href="https://wa.me/5594992094196?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20casa%20na%20%C3%A1rvore." target="_blank" rel="noopener">WhatsApp · Reserva direta</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('.fx');
+    if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in')}); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    els.forEach(function(e){ io.observe(e); });
+  })();
+</script>
 </body>
 </html>
