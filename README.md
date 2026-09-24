@@ -12,9 +12,8 @@ microsite/
 ```
 
 ## Preencher antes de publicar (3 campos)
-1. **WhatsApp** — procure por `5500000000000` no `index.html` (aparece 3 vezes:
-   botão principal, rodapé, botão flutuante). Substitua por DDD+número,
-   ex.: `5571999999999`.
+1. **WhatsApp** — já configurado com o número 5594992094196 (verifique se está correto).
+   Aparece 3 vezes no `index.html`: botão principal, rodapé, botão flutuante.
 2. **Diária** — procure por `[PREENCHER: R$ ___]` no bloco de reserva.
    Sugestão: publicar a partir da primeira diária real medida na piloto
    (pode ficar "sob consulta" no começo — não é um problema, é padrão).
